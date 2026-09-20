@@ -898,15 +898,22 @@ app.get('/api/skills', async (req, res) => {
 });
 
 // Serve static client assets for single-service deployment on Render
-const clientDistPath = path.join(__dirname, '../client/dist');
-if (fs.existsSync(clientDistPath)) {
-  app.use(express.static(clientDistPath));
-  app.get('*', (req, res) => {
-    if (!req.path.startsWith('/api')) {
-      res.sendFile(path.join(clientDistPath, 'index.html'));
-    }
-  });
-}
+const clientDistPath = path.resolve(__dirname, '../client/dist');
+console.log('Serving static files from:', clientDistPath, '| Exists:', fs.existsSync(clientDistPath));
+
+app.use(express.static(clientDistPath));
+
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
+  const indexPath = path.join(clientDistPath, 'index.html');
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.status(404).send(`Frontend build not found at ${clientDistPath}. Please ensure build step ran correctly.`);
+  }
+});
 
 const PORT = Number(process.env.PORT || 5000);
 app.listen(PORT, () => console.log(`Backend Express Server running at http://localhost:${PORT}`));
