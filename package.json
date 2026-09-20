@@ -1,0 +1,12 @@
+{
+  "name": "ai-placement-dbms-project",
+  "version": "1.0.0",
+  "description": "AI-Based Internship & Placement Management System",
+  "main": "server/server.js",
+  "scripts": {
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  }
+}
