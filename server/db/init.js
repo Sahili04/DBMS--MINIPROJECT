@@ -169,7 +169,7 @@ function initDb() {
     db.run("INSERT INTO users(name,email,password_hash,role) VALUES (?,?,?,?)",
       ['System Admin','admin@placement.local', hashPassword('admin123'), 'ADMIN']);
     db.run("INSERT INTO users(name,email,password_hash,role) VALUES (?,?,?,?)",
-      ['Sahili Kulkarni','sahili@college.edu', hashPassword('student123'), 'STUDENT']);
+      ['Sahili Balpande','sahili@college.edu', hashPassword('student123'), 'STUDENT']);
     db.run("INSERT INTO users(name,email,password_hash,role) VALUES (?,?,?,?)",
       ['Rahul Deshmukh','rahul@college.edu', hashPassword('student123'), 'STUDENT']);
     db.run("INSERT INTO users(name,email,password_hash,role) VALUES (?,?,?,?)",

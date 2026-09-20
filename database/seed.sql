@@ -16,7 +16,7 @@ INSERT INTO skills(skill_name) VALUES
 -- SHA256('recruiter123') = c2171ff7647209930f789d2d46e9dfd807662c4314c46f1ec01c741490214a1c
 INSERT INTO users(name, email, password_hash, role) VALUES
 ('System Admin',          'admin@placement.local',     SHA2('admin123', 256),     'ADMIN'),
-('Sahili Kulkarni',      'sahili@college.edu',        SHA2('student123', 256),   'STUDENT'),
+('Sahili Balpande',      'sahili@college.edu',        SHA2('student123', 256),   'STUDENT'),
 ('Rahul Deshmukh',       'rahul@college.edu',         SHA2('student123', 256),   'STUDENT'),
 ('Meera Joshi',          'meera@college.edu',         SHA2('student123', 256),   'STUDENT'),
 ('Aarav Mehta',          'aarav@college.edu',         SHA2('student123', 256),   'STUDENT'),
